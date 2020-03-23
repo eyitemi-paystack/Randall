@@ -3,7 +3,7 @@ from os import environ, path
 from dotenv import load_dotenv
 
 
-env_path = path.joinn(path.dirname(__file__), path.pardir, '.env')
+env_path = path.join(path.dirname(__file__), path.pardir, '.env')
 load_dotenv(env_path, override=True)
 
 def get_env(key):
