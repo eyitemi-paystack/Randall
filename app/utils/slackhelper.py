@@ -1,5 +1,6 @@
 #from slackclient import SlackClient
-from slack import SlackClient
+import slack.web.base_client as SlackClient
+#from slack import SlackClient
 from ...config import get_env
 
 
@@ -19,15 +20,15 @@ class SlackHelper:
             as_user=True
         )
 
-	def post_message_to_channel(self, msg):
-		return self.slack_client.api_call(
-			"chat.postMessage",
-			channel=self.slack_channel,
-			text=msg,
-			username='Randall',
-			parse='full',
-			as_user=False
-		)
+    def post_message_to_channel(self, msg):
+        return self.slack_client.api_call(
+            "chat.postMessage",
+            channel=self.slack_channel,
+            text=msg,
+            username='Randall',
+            parse='full',
+            as_user=False
+        )
         
     def file_upload(self, file_content, file_name, file_type, title=None, ):
         return self.slack_client.api_call(

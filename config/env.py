@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+
+sys.path.append( os.path.join( os.path.dirname(__file__), os.path.pardir ) )
+
 from . import get_env
 
 class EnvConfig(object):
@@ -30,3 +37,9 @@ class ProductionEnv(EnvConfig):
     TESTING = False
 
 
+app_env = {
+    'development': DevelopmentEnv,
+    'testing': TestingEnv,
+    'staging': StagingEnv,
+    'production': ProductionEnv,
+}
